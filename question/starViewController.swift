@@ -16,13 +16,17 @@ class starViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.starLabel.frame.size.width = 0
-        self.starLabel.frame.origin.y = -10
+        self.starLabel.alpha = 0
+        self.starLabel.frame.origin.y = 0
         self.textButton.alpha = 0
+        self.textButton.frame.origin.y = 600
+        self.starLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi )
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 3, delay: 0, animations: {
-            self.starLabel.frame.size.width = 400
+            self.starLabel.alpha = 1
             self.starLabel.frame.origin.y = 260
             self.textButton.alpha = 1
+            self.textButton.frame.origin.y = 360
+            self.starLabel.transform = CGAffineTransform(rotationAngle: 0 )
         }, completion: nil)
         textButton.setTitle("你得到了" + String(score) + "顆星", for: UIControl.State.normal)
         starLabel.text = star
